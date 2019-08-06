@@ -1,0 +1,12 @@
+{
+    "name": "videoelephant/tech_test",
+    "authors": [
+        {
+            "name": "Deri Ohuiginn",
+            "email": "deriohig@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}
