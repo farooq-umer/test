@@ -34,7 +34,7 @@ export default {
 
   mounted() {
     this.getUsers()
-    //this.getJiraIssues()
+    this.getJiraIssues()
   },
 
   methods: {
@@ -43,7 +43,7 @@ export default {
       try {
         // https://umerfarooq.atlassian.net/rest/api/2/project
         // https://umerfarooq.atlassian.net/rest/api/2/issue/SUP-1
-        const { data: response } = await http.get('https://umerfarooq.atlassian.net//rest/api/2/search?jql=project=SUP&maxResults=10', {
+        const { data: response } = await http.get('https://umerfarooq.atlassian.net//rest/api/2/search?jql=project=SUP&maxResults=100', {
           auth: {
               username: 'umer.irl@gmail.com',
               password: 'Yd05bj8sBz6STw6HkbAd843C'
