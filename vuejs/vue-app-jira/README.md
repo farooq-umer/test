@@ -1,4 +1,4 @@
-# vue-app
+# vue-app-jira
 
 ## Project setup
 ```

@@ -14,6 +14,13 @@
         </tr>
       </tbody>
     </table>
+
+    <ul v-if="errors && errors.length">
+      <li v-for="error in errors">
+        {{error.message}}
+      </li> 
+    </ul>
+    
   </div>
 </template>
 
