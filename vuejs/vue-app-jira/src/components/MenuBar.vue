@@ -45,6 +45,13 @@
                         </router-link>
                     </span>
                 </v-btn>
+                 <v-btn>
+                    <span>
+                        <router-link to="/posts">
+                            <v-icon>mdi-plus-circle</v-icon>Posts
+                        </router-link>
+                    </span>
+                </v-btn>
             </v-toolbar-items>
 
             <!-- <template v-if="$vuetify.breakpoint.smAndUp">

@@ -4,10 +4,23 @@
         <h5><u>API GET Request <i>With</i> Authenticaion</u></h5>
         <h1>Jira Issues</h1>
         <jira-issues-table :issues="issues" :errors="errors" />
+        
         <hr />
+        
         <h5><u>API GET Request <i>WithOut</i> Authenticaion</u></h5>
         <h1>Users</h1>
-        <user-table :users="users" />
+         
+         <div class="text-center">
+          <v-pagination
+            v-model="pagination.page"
+            :length="pageCount"
+            @input="onPageChange"
+          >
+          </v-pagination>
+        </div>
+        
+        <user-table :users="paginatedUsers" />
+
   </div>
 </template>
 
@@ -28,17 +41,22 @@ export default {
     return {    
       errors: [],
       users: [],
-      issues: []
+      paginatedUsers: [],
+      issues: [],
+      pagination: {
+        page: 1,
+        perPage: 4
+      }
     }
   },
 
   mounted() {
-    this.getUsers()
     this.getJiraIssues()
+    this.getUsers()
   },
-
+  
   methods: {
-
+    
     async getJiraIssues() {
       try {
         // https://umerfarooq.atlassian.net/rest/api/2/project
@@ -64,7 +82,35 @@ export default {
         console.error(error)
       }
     }
+
+  },
+  
+  computed: {
     
+    pageCount(page) {
+      //console.log(page);
+      let total = this.users.length;
+      return Math.ceil( total / this.pagination.perPage);
+    },
+
+    onPageChange(page) {
+      //console.log(page);
+      let pageNumber = this.pagination.page;
+      let perPage = this.pagination.perPage;
+      let from = (pageNumber * perPage) - perPage;
+      let to = (pageNumber * perPage);
+      this.paginatedUsers = this.users.slice(from, to);
+    }
+
+  },
+
+  watch: {
+
+    "pagination.page": (pageNumber) => {
+        //console.log(pageNumber); @input="onPageChange"
+        //this.onPageChange(pageNumber);
+    }
+
   }
 
 }

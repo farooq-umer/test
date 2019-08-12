@@ -1,10 +1,9 @@
 <template>
     <div id="app">
-
+      <v-container>
         <MenuBar />
-
         <router-view/>
-
+      </v-container>
   </div>
 </template>
 

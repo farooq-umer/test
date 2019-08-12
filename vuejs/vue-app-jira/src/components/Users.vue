@@ -21,9 +21,7 @@ export default {
 
   data() {
     return {    
-      errors: [],
-      users: [],
-      issues: []
+      users: []
     }
   },
 
@@ -40,7 +38,6 @@ export default {
         this.users = response
       } catch (error) {
         console.error(error)
-        this.errors.push(err)
       }
     }
 

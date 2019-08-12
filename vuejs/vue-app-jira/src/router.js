@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import Home from './components/Home.vue'
 import Jira from './components/Jira.vue'
 import Users from './components/Users.vue'
+import Posts from './components/Posts.vue'
 
 Vue.use(Router);
 
@@ -21,6 +22,10 @@ export default new Router({
         {
             path: '/users',
             component: Users
+        },
+        {
+            path: '/posts',
+            component: Posts
         },
     ]
 })
